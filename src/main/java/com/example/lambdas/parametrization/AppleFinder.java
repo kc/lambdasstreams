@@ -1,4 +1,4 @@
-package com.example.lambdas.passingcode;
+package com.example.lambdas.parametrization;
 
 import com.example.lambdas.Apple;
 

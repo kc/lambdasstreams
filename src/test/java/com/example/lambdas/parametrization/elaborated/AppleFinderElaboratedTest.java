@@ -1,6 +1,11 @@
-package com.example.lambdas.passingcode;
+package com.example.lambdas.parametrization.elaborated;
 
 import com.example.lambdas.Apple;
+import com.example.lambdas.parametrization.AppleFinder;
+import com.example.lambdas.parametrization.elaborated.AppleFinderElaborated;
+import com.example.lambdas.parametrization.elaborated.ApplePredicate;
+import com.example.lambdas.parametrization.elaborated.IsGreenApple;
+import com.example.lambdas.parametrization.elaborated.IsHeavyApple;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -12,8 +17,17 @@ import static org.junit.Assert.assertTrue;
 
 public class AppleFinderElaboratedTest {
     @Test
-    public void findByColor() {
-        List<Apple> greenApples = AppleFinder.findGreenApples(appleList());
+    public void findGreenApples() {
+        List<Apple> greenApples = AppleFinderElaborated.findGreenApples(appleList());
+
+        for (Apple greenApple : greenApples) {
+            assertEquals("green", greenApple.getColor());
+        }
+    }
+
+    @Test
+    public void findApples() {
+        List<Apple> greenApples = AppleFinderElaborated.findApples(appleList(), "green", 100);
 
         for (Apple greenApple : greenApples) {
             assertEquals("green", greenApple.getColor());
