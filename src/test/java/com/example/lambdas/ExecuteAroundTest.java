@@ -1,4 +1,4 @@
-package com.example.lambdas.parametrization;
+package com.example.lambdas;
 
 import org.junit.Test;
 

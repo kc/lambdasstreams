@@ -1,4 +1,4 @@
-package com.example.lambdas.parametrization;
+package com.example.lambdas;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class ExecuteAround {
-    public String processFile() throws IOException, URISyntaxException {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("data.txt")));) {
+    public String processFile() throws IOException {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("data.txt")))) {
             String oneLineFromFile = br.readLine(); // this should be parameterized
             System.out.println(oneLineFromFile); // this one too?
             return oneLineFromFile;

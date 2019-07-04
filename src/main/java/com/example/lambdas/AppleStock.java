@@ -1,7 +1,5 @@
 package com.example.lambdas;
 
-import com.example.lambdas.Apple;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.DoubleStream;
