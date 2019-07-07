@@ -13,7 +13,7 @@ public class UsingConsumerTest {
     public void printIntegers() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
         forEach(list, (Integer i) -> System.out.println(i));
-        forEach(list, s -> list.add(s)); // void compatibility;
+        forEach(list, s -> list.add(s)); // void compatibility: we can pass in a Predicate (lambda returns boolean) as a Consumer! (Boolean) Statement expression is compatible with void.
     }
 
 }
