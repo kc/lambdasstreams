@@ -23,6 +23,8 @@ public class Person {
         this.salary = salary;
     }
 
+    public void raiseSalary(int raise) { this.salary += raise; }
+
     @Override
     public String toString() {
         return "Person{" +

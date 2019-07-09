@@ -11,13 +11,13 @@ public class PersonServiceTester {
 
         PersonService personService = new PersonService();
 
-        personService.raiseSalaryOldStyle(p1, name);
-        personService.raiseSalaryOldStyle(p2, name);
-        personService.raiseSalaryOldStyle(p3, name + "Foo");
+        personService.raiseSalary0(p1, name, 100);
+        personService.raiseSalary0(p2, name, 100);
+        personService.raiseSalary0(p3, "Foo", 100);
 
-        personService.raiseSalary(p1, name);
-        personService.raiseSalary(p2, name);
-        personService.raiseSalary(p3, name);
+        personService.raiseSalary1(p1, name, 100);
+        personService.raiseSalary1(p2, name, 100);
+        personService.raiseSalary2(p3, name, 100);
 
         System.out.println(p1);
         System.out.println(p2);
