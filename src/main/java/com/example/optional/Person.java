@@ -4,12 +4,15 @@ public class Person {
     private String name = null;
     private int salary = 0;
 
-    public String getName() {
-        return name;
+    public Person() {
     }
 
-    public void setName(String name) {
+    public Person(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getSalary() {

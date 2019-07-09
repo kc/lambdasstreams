@@ -3,6 +3,7 @@ package com.example.optional;
 import java.util.Optional;
 
 public class PersonService {
+
     public void raiseSalaryOldStyle(Person p, String name) {
         if (p != null) {
             if (p.getName() != null)
