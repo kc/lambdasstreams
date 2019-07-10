@@ -2,8 +2,10 @@ package com.example.streams.collect;
 
 import com.example.streams.Person;
 
+import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static com.example.streams.ExampleCollections.persons;
 
@@ -18,5 +20,16 @@ public class CollectPerson {
                         j -> j.toString());                     // finisher: converteert de totaal gevulde container tot één waarde
 
         return persons.stream().collect(personNameCollector);
+    }
+
+    public String reducePersonNames() {
+        Collector<Object, ?, List<Object>> objectListCollector = Collectors.toList();
+
+        return persons.stream()
+                .map(p -> p.name)
+                .map(String::toUpperCase)
+                .reduce((s1, s2) -> s1 + " | " + s2)
+                .orElse("")
+                ;
     }
 }
