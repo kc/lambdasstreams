@@ -2,8 +2,8 @@ package com.example.streams;
 
 
 public class Person {
-    String name;
-    int age;
+    public final String name;
+    public final int age;
 
     Person(String name, int age) {
         this.name = name;
