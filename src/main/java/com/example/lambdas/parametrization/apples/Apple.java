@@ -1,4 +1,4 @@
-package com.example.lambdas;
+package com.example.lambdas.parametrization.apples;
 
 public class Apple {
     private final String color;

@@ -1,12 +1,11 @@
-package com.example.lambdas.parametrization;
+package com.example.lambdas.parametrization.apples;
 
-import com.example.lambdas.Apple;
 import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.List;
 
-import static com.example.lambdas.AppleStock.appleList;
+import static com.example.lambdas.parametrization.apples.AppleStock.appleList;
 import static org.junit.Assert.assertEquals;
 
 public class AppleFinderTest {

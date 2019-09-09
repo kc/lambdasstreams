@@ -1,17 +1,16 @@
-package com.example.lambdas.parametrization.elaborated;
+package com.example.lambdas.parametrization.apples.elaborated;
 
-import com.example.lambdas.Apple;
-import com.example.lambdas.parametrization.AppleFinder;
-import com.example.lambdas.parametrization.elaborated.AppleFinderElaborated;
-import com.example.lambdas.parametrization.elaborated.ApplePredicate;
-import com.example.lambdas.parametrization.elaborated.IsGreenApple;
-import com.example.lambdas.parametrization.elaborated.IsHeavyApple;
+import com.example.lambdas.parametrization.apples.Apple;
+import com.example.lambdas.parametrization.apples.elaborated.AppleFinderElaborated;
+import com.example.lambdas.parametrization.apples.elaborated.ApplePredicate;
+import com.example.lambdas.parametrization.apples.elaborated.IsGreenApple;
+import com.example.lambdas.parametrization.apples.elaborated.IsHeavyApple;
 import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.List;
 
-import static com.example.lambdas.AppleStock.appleList;
+import static com.example.lambdas.parametrization.apples.AppleStock.appleList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

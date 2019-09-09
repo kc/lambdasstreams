@@ -1,4 +1,4 @@
-package com.example.lambdas;
+package com.example.lambdas.parametrization.apples;
 
 import java.util.Arrays;
 import java.util.List;

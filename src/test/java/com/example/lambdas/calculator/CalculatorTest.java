@@ -1,4 +1,4 @@
-package com.example.lambdas;
+package com.example.lambdas.calculator;
 
 import org.junit.Test;
 
