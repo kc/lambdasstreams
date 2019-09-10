@@ -7,19 +7,35 @@ import java.util.function.UnaryOperator;
 
 import static com.example.lambdas.functionalinterfaces.UsingConsumer.forEach;
 import static com.example.lambdas.functionalinterfaces.UsingUnaryOperator.map;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UsingUnaryOperatorTest {
 
     @Test
     public void negateInts() {
         UnaryOperator<Integer> negate = x -> -1 * x;
-        List<Integer> map = map(List.of(1, 2, 3, 4, 5), negate);
-        forEach(map, System.out::println);
+        List<Integer> input = List.of(1, 2, 3, 4, 5);
+
+        List<Integer> output = map(input, negate);
+        forEach(output, System.out::println);
+
+        for (int i = 0; i < output.size(); i++) {
+            assertThat(output.get(i), is(input.get(i) * -1));
+        }
     }
+
 
     @Test
     public void manipulateStrings() {
-        UnaryOperator<String> addTxt = s -> s + ".txt";
-        map(List.of("1", "2", "3", "4", "5"), addTxt).forEach(System.out::println);
+        final String ext = ".txt";
+        UnaryOperator<String> addTxt = s -> s + ext;
+        List<String> input = List.of("1", "2", "3", "4", "5");
+
+        List<String> output = map(input, addTxt);
+        output.forEach(System.out::println);
+
+        output.forEach(s -> assertThat(s, containsString(ext)));
     }
 }
