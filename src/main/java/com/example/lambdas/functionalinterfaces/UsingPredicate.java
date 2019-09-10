@@ -7,9 +7,9 @@ import java.util.function.Predicate;
 public class UsingPredicate {
 
     public static List<String> filter(List<String> list, Predicate<String> p) {
-        List<String> results = new ArrayList<>();
+        List<String> result = new ArrayList<>();
         //...
-        return results;
+        return result;
     }
 }
 

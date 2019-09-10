@@ -21,11 +21,11 @@ public class UsingUnaryOperatorTest {
         List<Integer> output = map(input, negate);
         forEach(output, System.out::println);
 
+        assertThat(output.size(), is(input.size()));
         for (int i = 0; i < output.size(); i++) {
             assertThat(output.get(i), is(input.get(i) * -1));
         }
     }
-
 
     @Test
     public void manipulateStrings() {
@@ -36,6 +36,7 @@ public class UsingUnaryOperatorTest {
         List<String> output = map(input, addTxt);
         output.forEach(System.out::println);
 
+        assertThat(output.size(), is(input.size()));
         output.forEach(s -> assertThat(s, containsString(ext)));
     }
 }
