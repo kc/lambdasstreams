@@ -7,15 +7,15 @@ public class Calculator {
 
     // private ...;
 
-    private Calculator(Double i) {
+    private Calculator(Double d) {
 
     }
 
-    public static Calculator of(Double i) {
+    public static Calculator of(Double d) {
         return null;
     }
 
-    public Calculator calculate(Function<Double, Double> f) {
+    public Calculator map(Function<Double, Double> f) {
         return null;
     }
 
