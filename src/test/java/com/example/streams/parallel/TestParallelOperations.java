@@ -105,7 +105,7 @@ public class TestParallelOperations {
             if (duration < fastest)
                 fastest = duration;
         }
-// test
+
         return new Result(fastest, sum);
     }
 
