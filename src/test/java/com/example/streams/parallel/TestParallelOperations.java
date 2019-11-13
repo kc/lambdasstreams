@@ -83,7 +83,7 @@ public class TestParallelOperations {
     }
 
     private long accumulatedRange(long n) {
-        Accumulator accumulator = new Accumulator.AtomicAccumulator();
+        Accumulator accumulator = new Accumulator.SynchronizedAccumulator();
         LongStream.rangeClosed(1, n)
                 .parallel()
                 .forEach(accumulator::add);
@@ -105,7 +105,7 @@ public class TestParallelOperations {
             if (duration < fastest)
                 fastest = duration;
         }
-
+// test
         return new Result(fastest, sum);
     }
 
