@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class CalculatorTest {
 
     @Test
-    public void test() {
+    public void whenCalculateThenResultIsCorrect() {
         Double result =
                 Calculator.of(5d)
                         .calculate(v -> v + 5)
@@ -20,7 +20,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void test2() {
+    public void whenSubCalculateThenResultIsCorrect() {
         Double result =
                 Calculator.of(3d)
                         .calculate(v -> v + 7)
@@ -32,7 +32,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void test3() {
+    public void whenCalculationsCombinedThenResultIsCorrect() {
         Double result =
                 Calculator.of(-Math.PI)
                         .calculate(Math::abs)
