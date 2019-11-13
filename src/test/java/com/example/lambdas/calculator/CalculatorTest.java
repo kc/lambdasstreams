@@ -11,9 +11,9 @@ public class CalculatorTest {
     public void test() {
         Double result =
                 Calculator.of(5d)
-                        .map(v -> v + 5)
-                        .map(v -> v * 2)
-                        .map(v -> v / 4)
+                        .calculate(v -> v + 5)
+                        .calculate(v -> v * 2)
+                        .calculate(v -> v / 4)
                         .result();
 
         assertThat(result, is(5.0));
@@ -23,8 +23,8 @@ public class CalculatorTest {
     public void test2() {
         Double result =
                 Calculator.of(3d)
-                        .map(v -> v + 7)
-                        .flatMap(r -> reusableCalculator(r))
+                        .calculate(v -> v + 7)
+                        .subCalculate(r -> reusableCalculator(r))
                         .accept(System.out::println)
                         .result();
 
@@ -35,11 +35,11 @@ public class CalculatorTest {
     public void test3() {
         Double result =
                 Calculator.of(-Math.PI)
-                        .map(Math::abs)
-                        .map(Math::sin)
-                        .map(Math::exp)
-                        .map(Math::floor)
-                        .flatMap(this::reusableCalculator)
+                        .calculate(Math::abs)
+                        .calculate(Math::sin)
+                        .calculate(Math::exp)
+                        .calculate(Math::floor)
+                        .subCalculate(this::reusableCalculator)
                         .accept(System.out::println)
                         .result();
 
@@ -48,8 +48,8 @@ public class CalculatorTest {
 
     private Calculator reusableCalculator(Double r) {
         return Calculator.of(r)
-                .map(v -> v + 1)
-                .map(v -> v * 3);
+                .calculate(v -> v + 1)
+                .calculate(v -> v * 3);
     }
 
 }
