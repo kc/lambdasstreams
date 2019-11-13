@@ -1,8 +1,12 @@
 package com.example.optional.car;
 
+import com.example.optionals.car.Car;
+import com.example.optionals.car.Insurance;
+import com.example.optionals.car.Optionals;
+import com.example.optionals.car.Person;
 import org.junit.Test;
 
-import static com.example.optional.car.updateddomain.Optionals.unknown;
+import static com.example.optionals.car.updateddomain.Optionals.unknown;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,14 +38,14 @@ public class OptionalsTest {
     @Test
     public void getOptionalCarInsuranceNameReturnsUnknown() {
         Person person = null;
-        String name = Optionals.getOptionalCarInsuranceName(person);
+        String name = Optionals.getCarInsuranceName(person);
         assertThat(name, is("Unknown"));
     }
 
     @Test
     public void getOptionalCarInsuranceNameReturnsName() {
         Person person = new Person(new Car(new Insurance("WA")));
-        String name = Optionals.getOptionalCarInsuranceName(person);
+        String name = Optionals.getCarInsuranceName(person);
         assertThat(name, is("WA"));
     }
 }

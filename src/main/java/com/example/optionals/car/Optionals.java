@@ -1,4 +1,4 @@
-package com.example.optional.car;
+package com.example.optionals.car;
 
 public class Optionals {
 
@@ -28,8 +28,8 @@ public class Optionals {
         return insurance.getName();
     }
 
-    public static String getOptionalCarInsuranceName(Person person) {
-        return "TODO!";
+    public static String getCarInsuranceName(Person person) {
+        return "TODO!"; // TODO 6.1.1
     }
 
 }

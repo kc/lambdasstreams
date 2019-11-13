@@ -1,4 +1,4 @@
-package com.example.optional.car.updateddomain;
+package com.example.optionals.car.updateddomain;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,11 +8,11 @@ public class Optionals {
 
     public static final String unknown = "Unknown";
 
-    public static String getOptionalCarInsuranceName(Person person) {
+    public static String getCarInsuranceName(Person person) {
         return unknown + "?"; // TODO; hint: use (flat)map
     }
 
-    public static String getOptionalCarInsuranceName(Person person, int minAge) {
+    public static String getCarInsuranceName(Person person, int minAge) {
         return unknown + "?"; // TODO; hint: use Optional.filter
     }
 

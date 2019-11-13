@@ -1,5 +1,9 @@
 package com.example.optional.car.updateddomain;
 
+import com.example.optionals.car.updateddomain.Car;
+import com.example.optionals.car.updateddomain.Insurance;
+import com.example.optionals.car.updateddomain.Optionals;
+import com.example.optionals.car.updateddomain.Person;
 import org.junit.Test;
 
 import java.util.List;
@@ -7,7 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static com.example.optional.car.updateddomain.Optionals.unknown;
+import static com.example.optionals.car.updateddomain.Optionals.unknown;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,28 +24,28 @@ public class OptionalsTest {
     @Test
     public void getOptionalCarInsuranceNameReturnsUnknown() {
         Person person = null;
-        String name = Optionals.getOptionalCarInsuranceName(person);
+        String name = Optionals.getCarInsuranceName(person);
         assertThat(name, is(unknown));
     }
 
     @Test
     public void getOptionalCarInsuranceNameReturnsName() {
         Person person = new Person(new Car(new Insurance(wa)));
-        String name = Optionals.getOptionalCarInsuranceName(person);
+        String name = Optionals.getCarInsuranceName(person);
         assertThat(name, is(wa));
     }
 
     @Test
     public void getOptionalCarInsuranceNameWithAgeHighEnoughReturnsName() {
         Person person = new Person(new Car(new Insurance(wa)), 20);
-        String name = Optionals.getOptionalCarInsuranceName(person, 18);
+        String name = Optionals.getCarInsuranceName(person, 18);
         assertThat(name, is(wa));
     }
 
     @Test
     public void getOptionalCarInsuranceNameWithAgeTooLowReturnsUnknown() {
         Person person = new Person(new Car(new Insurance(wa)), 16);
-        String name = Optionals.getOptionalCarInsuranceName(person, 18);
+        String name = Optionals.getCarInsuranceName(person, 18);
         assertThat(name, is(unknown));
     }
 

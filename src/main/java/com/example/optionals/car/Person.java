@@ -1,4 +1,4 @@
-package com.example.optional.car;
+package com.example.optionals.car;
 
 public class Person {
     private Car car;
