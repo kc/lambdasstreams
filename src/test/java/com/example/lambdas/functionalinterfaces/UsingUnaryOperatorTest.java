@@ -1,5 +1,6 @@
 package com.example.lambdas.functionalinterfaces;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UsingUnaryOperatorTest {
 
+    @Ignore // TODO: remove!
     @Test
     public void negateInts() {
         UnaryOperator<Integer> negate = x -> -1 * x;
@@ -27,6 +29,7 @@ public class UsingUnaryOperatorTest {
         }
     }
 
+    @Ignore // TODO: remove!
     @Test
     public void manipulateStrings() {
         final String ext = ".txt";

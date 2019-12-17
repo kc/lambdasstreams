@@ -8,7 +8,7 @@ public class UsingPredicate {
 
     public static List<String> filter(List<String> list, Predicate<String> p) {
         List<String> result = new ArrayList<>();
-        //...
+        // TODO: copy the elements from list which meet p to result
         return result;
     }
 }

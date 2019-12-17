@@ -4,6 +4,8 @@ public class MyMath {
 
     public final int i;
 
+    public MyMath() { i = -1; }
+
     public MyMath(int i) { this.i = i; }
 
     public static int x(int a) { return a + 1; }

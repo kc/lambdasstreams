@@ -2,16 +2,12 @@ package com.example.lambdas;
 
 import org.junit.Test;
 
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.IntConsumer;
-import java.util.function.IntFunction;
+import java.util.function.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MyMathTest {
-
 
     @Test
     public void test() {
@@ -39,14 +35,19 @@ public class MyMathTest {
         System.out.println(s2);
 
         // a method reference to an instance method of an existing object
-        execute(9, (int i) -> System.out.println("yummie" + i));
+        execute(9, (int i) -> System.out.println(i));
         execute(9, (int i) -> myMath.z(i));
         execute(9, myMath::z);
 
-        // constructor reference
-        IntFunction<MyMath> f = MyMath::new;
-        MyMath apply = f.apply(100);
-        assertThat(apply.i, is(100));
+        // constructor references
+        Supplier<MyMath> s = MyMath::new; // no arg constructor
+        IntFunction<MyMath> f = MyMath::new; // one (int) arg constructor
+
+        MyMath myMath1 = f.apply(100);
+        MyMath myMath2 = s.get();
+
+        assertThat(myMath1.i, is(100));
+        assertThat(myMath2.i, is(-1));
     }
 
     private int execute(int i, IntFunction<Integer> c) { return c.apply(i); }
