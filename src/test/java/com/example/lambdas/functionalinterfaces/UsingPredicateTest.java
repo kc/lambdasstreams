@@ -12,7 +12,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UsingPredicateTest {
 
-    @Ignore // TODO: remove!
     @Test
     public void test() {
         List<String> listOfStrings = Arrays.asList("a", "ab", "", "abc");

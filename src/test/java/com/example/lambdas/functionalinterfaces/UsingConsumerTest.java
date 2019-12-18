@@ -13,7 +13,6 @@ public class UsingConsumerTest {
 
     private final List<Integer> list = List.of(1, 2, 3, 4, 5);
 
-    @Ignore // TODO: remove!
     @Test
     public void addIntegers() {
         List<Integer> copy = new ArrayList<>();
@@ -21,7 +20,6 @@ public class UsingConsumerTest {
         assertThat(copy.size()).isEqualTo(list.size());
     }
 
-    @Ignore // TODO: remove!
     @Test
     public void printIntegers() {
         forEach(list, x -> System.out.println(x));

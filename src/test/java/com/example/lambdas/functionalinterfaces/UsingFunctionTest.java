@@ -12,7 +12,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UsingFunctionTest {
 
-    @Ignore // TODO: remove!
     @Test
     public void mapStringsToIntAccordingToTheirLength() {
         List<String> list = Arrays.asList("lambdas", "in", "action");
