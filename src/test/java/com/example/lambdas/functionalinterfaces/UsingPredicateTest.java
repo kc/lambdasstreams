@@ -1,6 +1,5 @@
 package com.example.lambdas.functionalinterfaces;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
