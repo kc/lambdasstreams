@@ -1,4 +1,4 @@
-package com.example.optional.car.updateddomain;
+package com.example.optionals.car.updateddomain;
 
 import com.example.optionals.car.updateddomain.Car;
 import com.example.optionals.car.updateddomain.Insurance;

@@ -10,7 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class AppleFinderTest {
 
-
     @Test
     public void findByColor() {
         List<Apple> greenApples = AppleFinder.findGreenApples(appleList());

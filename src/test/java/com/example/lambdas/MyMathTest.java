@@ -11,35 +11,35 @@ public class MyMathTest {
 
     @Test
     public void test() {
-        // als een lambda simpelweg delegeert naar een andere methode, kun je in enkele
-        // gevallen direct een referentie naar die andere methode meegeven ipv de lambda die hem aanroept
+        // als een lambda simpelweg delegeert naar een andere methode, kun je in sommige
+        // gevallen een referentie naar die andere methode meegeven ipv de lambda die hem aanroept
 
         MyMath myMath = new MyMath(42);
 
-        // a method reference to a static method
-        int execute1 = execute(4, (int a) -> a + 1);
-        int execute2 = execute(4, (int a) -> MyMath.x(a)); // put 4 into function x
-        int execute3 = execute(4, MyMath::x);
+        // 1. a method reference to a static method
+        int mutate0 = mutate(4, a -> a + 1);
+        int mutate1 = mutate(4, (int a) -> MyMath.x(a)); // put 4 into function x
+        int mutate2 = mutate(4, MyMath::x);
 
-        assertThat(execute1, is(execute2));
-        assertThat(execute2, is(execute3));
+        assertThat(mutate1, is(5));
+        assertThat(mutate1, is(mutate2));
 
-        // a method reference to an instance method
-        execute(myMath, 10, (x, y) -> System.out.println("hap" + x.i + y));
-        execute(myMath, 10, (m, i) -> m.y(i)); // apply m.y on 10
-        execute(myMath, 10, MyMath::y);
+        // 2. a method reference to an instance method
+        String s1 = mutate("abcde", 3, (s, i) -> s.substring(i));
+        String s2 = mutate("abcde", 3, String::substring);
+        assertThat(s1, is("de"));
+        assertThat(s2, is("de"));
 
-        String s1 = execute((s, i) -> s.substring(i), "abcde", 3); // apply substring on abcde, skip 3
-        String s2 = execute(String::substring, "abcde", 3);
-        System.out.println(s1);
-        System.out.println(s2);
+        mutate(myMath, 10, (m, i) -> m.i + i);
+        mutate(myMath, 10, (m, i) -> m.y(i)); // apply m.y on 10
+        mutate(myMath, 10, MyMath::y);
 
-        // a method reference to an instance method of an existing object
-        execute(9, (int i) -> System.out.println(i));
-        execute(9, (int i) -> myMath.z(i));
-        execute(9, myMath::z);
+        // 3. a method reference to an instance method of an existing object
+        consume(9, (int i) -> System.out.println(i));
+        consume(9, (int i) -> myMath.y(i));
+        consume(9, myMath::y);
 
-        // constructor references
+        // 4. constructor references
         Supplier<MyMath> s = MyMath::new; // no arg constructor
         IntFunction<MyMath> f = MyMath::new; // one (int) arg constructor
 
@@ -50,15 +50,23 @@ public class MyMathTest {
         assertThat(myMath2.i, is(-1));
     }
 
-    private int execute(int i, IntFunction<Integer> c) { return c.apply(i); }
-
-    private void execute(MyMath m, int i, BiConsumer<MyMath, Integer> c) {
-        c.accept(m, i);
+    private int mutate(int i, IntFunction<Integer> c) {
+        return c.apply(i);
     }
 
-    private String execute(BiFunction<String, Integer, String> stringFunction, String s, int skip) {
+    private String mutate(String s, int skip, BiFunction<String, Integer, String> stringFunction) {
         return stringFunction.apply(s, skip);
     }
 
-    private void execute(int i, IntConsumer c) { c.accept(i); }
+    private void consume(MyMath m, int i, BiConsumer<MyMath, Integer> c) {
+        c.accept(m, i);
+    }
+
+    private int mutate(MyMath m, int i, BiFunction<MyMath, Integer, Integer> c) {
+        return c.apply(m, i);
+    }
+
+    private void consume(int i, IntConsumer c) {
+        c.accept(i);
+    }
 }

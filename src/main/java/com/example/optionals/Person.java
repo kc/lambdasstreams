@@ -4,9 +4,6 @@ public class Person {
     private String name = null;
     private int salary = 0;
 
-    public Person() {
-    }
-
     public Person(String name) {
         this.name = name;
     }

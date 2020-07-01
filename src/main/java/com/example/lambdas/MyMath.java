@@ -8,9 +8,8 @@ public class MyMath {
 
     public MyMath(int i) { this.i = i; }
 
-    public static int x(int a) { return a + 1; }
+    public static int x(int a) { return a + 1; } // pure function
 
-    public void y(int i) { System.out.println("Hap" + i); }
+    public int y(int a) { return this.i + a; } // instance method, operates on objects' state
 
-    public void z(int i) { System.out.println("Yummie" + this.i + i); }
 }
