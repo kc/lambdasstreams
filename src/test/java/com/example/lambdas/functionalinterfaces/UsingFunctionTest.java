@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.example.lambdas.functionalinterfaces.UsingFunction.map;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UsingFunctionTest {

@@ -13,15 +13,15 @@ public class UsingConsumerTest {
     private final List<Integer> list = List.of(1, 2, 3, 4, 5);
 
     @Test
+    public void printIntegers() {
+        forEach(list, x -> System.out.println(x));
+    }
+
+    @Test
     public void addIntegers() {
         List<Integer> copy = new ArrayList<>();
         forEach(list, e -> copy.add(e)); // void compatibility: we can pass in a Predicate (lambda returns boolean) as a Consumer! (Boolean) Statement expression is compatible with void.
         assertThat(copy.size()).isEqualTo(list.size());
-    }
-
-    @Test
-    public void printIntegers() {
-        forEach(list, x -> System.out.println(x));
     }
 
 }
