@@ -12,11 +12,16 @@ public class UsingSupplierTest {
 
     @Test
     public void concatStringsWithExclamationMark() {
+        final String excl = "!";
         List<String> words = List.of("lambdas", "in", "action");
-        List<String> mutatedWords = concat(words, () -> "!");
+        List<String> mutatedWords = concat(words, () -> excl);
 
         assertThat(mutatedWords.size(), is(words.size()));
         assertThat(mutatedWords, everyItem(endsWith("!")));
+
+        // .. or with AssertJ:
+        // assertThat(mutatedWords.size()).isEqualTo(words.size()); // fluent API
+        // assertThat(mutatedWords).allMatch(i -> i.endsWith(excl));
     }
 
 }
