@@ -23,8 +23,18 @@ public class Person {
         return name.hashCode() + age;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public String getName() {
         return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
