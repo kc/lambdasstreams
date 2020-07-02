@@ -14,9 +14,10 @@ public class CalculatorTest {
                         .calculate(v -> v + 5)
                         .calculate(v -> v * 2)
                         .calculate(v -> v / 4)
+                        .calculate(v -> v % 2)
                         .result();
 
-        assertThat(result, is(5.0));
+        assertThat(result, is(1.0));
     }
 
     @Test
