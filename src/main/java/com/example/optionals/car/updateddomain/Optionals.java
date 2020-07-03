@@ -9,11 +9,13 @@ public class Optionals {
     public static final String unknown = "Unknown";
 
     public static String getCarInsuranceName(Person person) {
-        return unknown + "?"; // TODO; hint: use (flat)map
+        // TODO; hint: use Optional.(flat)map
+        return unknown + "?";
     }
 
     public static String getCarInsuranceName(Person person, int minAge) {
-        return unknown + "?"; // TODO; hint: use Optional.filter
+        // TODO; hint: use Optional.filter
+        return unknown + "?";
     }
 
     public static Set<String> getCarInsuranceNames(List<Person> persons) {
