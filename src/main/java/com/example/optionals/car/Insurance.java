@@ -11,7 +11,7 @@ public class Insurance {
     }
 
     public Optional<Integer> getYears() {
-        return Optional.of(years);
+        return Optional.ofNullable(years);
     }
 
     public String getName() { return name; }
