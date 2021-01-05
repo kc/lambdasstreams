@@ -18,9 +18,10 @@ public class MyMathTest {
 
         // 1. a method reference to a static method
         int mutate0 = mutate(4, a -> a + 1);
-        int mutate1 = mutate(4, (int a) -> MyMath.x(a)); // put 4 into function x
-        int mutate2 = mutate(4, MyMath::x);
+        int mutate1 = mutate(4, a -> MyMath.x(a)); // put a into function x
+        int mutate2 = mutate(4, MyMath::x); // use function x
 
+        assertThat(mutate0, is(5));
         assertThat(mutate1, is(5));
         assertThat(mutate1, is(mutate2));
 

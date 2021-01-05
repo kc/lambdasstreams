@@ -11,10 +11,10 @@ public class CalculatorTest {
     public void whenCalculateThenResultIsCorrect() {
         Double result =
                 Calculator.of(5d)
-                        .calculate(v -> v + 5)
-                        .calculate(v -> v * 2)
-                        .calculate(v -> v / 4)
-                        .calculate(v -> v % 2)
+                        .calculate(v -> v + 5) // 10
+                        .calculate(v -> v * 2) // 20
+                        .calculate(v -> v / 4) // 5
+                        .calculate(v -> v % 2) // 1
                         .result();
 
         assertThat(result, is(1.0));
