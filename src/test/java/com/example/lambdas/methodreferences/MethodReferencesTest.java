@@ -15,7 +15,13 @@ public class MethodReferencesTest {
     @Test
     public void testAppleFactory() {
         MethodReferences f = new MethodReferences();
-        List<Apple> apples = f.appleFactory(COLORS, WEIGHTS, Apple::new);
-        assertThat(apples.size(), is(COLORS.length * WEIGHTS.length));
+        int size = COLORS.length * WEIGHTS.length;
+
+        List<Apple> apples1 = f.appleFactory(COLORS, WEIGHTS, (color, weight) -> new Apple(color, weight));
+        assertThat(apples1.size(), is(size));
+
+        // with method reference
+        List<Apple> apples2 = f.appleFactory(COLORS, WEIGHTS, Apple::new);
+        assertThat(apples2.size(), is(size));
     }
 }
