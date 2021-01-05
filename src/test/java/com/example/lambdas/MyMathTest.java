@@ -23,7 +23,7 @@ public class MyMathTest {
 
         assertThat(mutate0, is(5));
         assertThat(mutate1, is(5));
-        assertThat(mutate1, is(mutate2));
+        assertThat(mutate2, is(5));
 
         // 2. a method reference to an instance method
         String s1 = mutate("abcde", 3, (s, i) -> s.substring(i));
@@ -36,8 +36,8 @@ public class MyMathTest {
         mutate(myMath, 10, MyMath::y);
 
         // 3. a method reference to an instance method of an existing object
-        consume(9, (int i) -> System.out.println(i));
-        consume(9, (int i) -> myMath.y(i));
+        consume(9, i -> System.out.println(i));
+        consume(9, i -> myMath.y(i));
         consume(9, myMath::y);
 
         // 4. constructor references
