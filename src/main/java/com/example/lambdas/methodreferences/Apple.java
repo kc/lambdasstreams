@@ -1,7 +1,7 @@
 package com.example.lambdas.methodreferences;
 
 public class Apple {
-    private final String color;
+    private String color;
     private int weight;
 
     public Apple(String color, int weight) {
@@ -18,6 +18,8 @@ public class Apple {
     }
 
     public void setWeight(int weight) { this.weight = weight; }
+
+    public void setColor(String color) { this.color = color; }
 
     @Override
     public String toString() {

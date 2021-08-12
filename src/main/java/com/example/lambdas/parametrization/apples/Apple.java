@@ -1,8 +1,8 @@
 package com.example.lambdas.parametrization.apples;
 
 public class Apple {
-    private final String color;
-    private final int weight;
+    private String color;
+    private int weight;
 
     public Apple(String color, int weight) {
         this.color = color;
@@ -15,6 +15,14 @@ public class Apple {
 
     public int getWeight() {
         return weight;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public String toString() {
