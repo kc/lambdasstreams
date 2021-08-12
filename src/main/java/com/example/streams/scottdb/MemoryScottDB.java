@@ -69,7 +69,7 @@ public class MemoryScottDB {
             for(Department department: departments) {
                 if (department.getId() == employee.getDepartmentId()) {
                     employee.setDepartment(department);
-                    department.getEmployees().addAll(employees);
+                    department.getEmployees().add(employee);
                 }
             }
         }
