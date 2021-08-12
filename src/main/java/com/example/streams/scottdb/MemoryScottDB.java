@@ -10,7 +10,7 @@ public class MemoryScottDB {
 
     private final List<Department> departments;
     private final List<Employee> employees;
-    private final List<SalaryGrades> salaryGrades;
+    private final List<SalaryGrade> salaryGrades;
 
     public MemoryScottDB() {
         this.departments = Arrays.asList(
@@ -20,11 +20,11 @@ public class MemoryScottDB {
             new Department(40, "OPERATIONS", "BOSTON")
         );
         this.salaryGrades = Arrays.asList(
-            new SalaryGrades(1, 1200, 700),
-            new SalaryGrades(2, 1400, 1201),
-            new SalaryGrades(3, 2000, 1401),
-            new SalaryGrades(4, 3000, 2001),
-            new SalaryGrades(5, 9999, 3001)
+            new SalaryGrade(1, 700, 1200),
+            new SalaryGrade(2, 1201, 1400),
+            new SalaryGrade(3, 1401, 2000),
+            new SalaryGrade(4, 2001, 3000),
+            new SalaryGrade(5, 3001, 9999)
         );
         this.employees = setEmployees();
         setReferences();
@@ -38,7 +38,7 @@ public class MemoryScottDB {
         return employees;
     }
 
-    public List<SalaryGrades> getSalaryGrades() {
+    public List<SalaryGrade> getSalaryGrades() {
         return salaryGrades;
     }
 

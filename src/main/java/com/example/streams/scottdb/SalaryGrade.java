@@ -1,11 +1,11 @@
 package com.example.streams.scottdb;
 
-public class SalaryGrades {
+public class SalaryGrade {
 	private final int grade;
 	private final double highCutoff;
 	private final double lowCutoff;
 	
-	public SalaryGrades(int grade, double highCutoff, double lowCutoff) {
+	public SalaryGrade(int grade, double lowCutoff, double highCutoff) {
 		this.grade = grade;
 		this.highCutoff = highCutoff;
 		this.lowCutoff = lowCutoff;
