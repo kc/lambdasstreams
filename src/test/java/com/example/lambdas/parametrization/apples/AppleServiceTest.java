@@ -37,7 +37,7 @@ public class AppleServiceTest {
                 new Apple("red", 85)
         );
         AppleService service = new AppleService();
-        service.consumeApples(apples, new ApplePrinter());
+        service.consumeApples(apples);
 
         String expected = "Apple Color: red, Weight: 150" + System.lineSeparator() +
                 "Apple Color: green, Weight: 180" + System.lineSeparator() +
