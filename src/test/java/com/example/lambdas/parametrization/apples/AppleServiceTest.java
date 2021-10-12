@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@SuppressWarnings({"Convert2Lambda", "Anonymous2MethodRef"})
 public class AppleServiceTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -36,8 +37,15 @@ public class AppleServiceTest {
                 new Apple("green", 180),
                 new Apple("red", 85)
         );
+
         AppleService service = new AppleService();
-        service.consumeApples(apples);
+        AppleConsumer appleConsumer = new AppleConsumer() {
+            @Override
+            public void accept(Apple apple) {
+                System.out.println(apple);
+            }
+        };
+        service.consumeApples(apples, appleConsumer);
 
         String expected = "Apple Color: red, Weight: 150" + System.lineSeparator() +
                 "Apple Color: green, Weight: 180" + System.lineSeparator() +
