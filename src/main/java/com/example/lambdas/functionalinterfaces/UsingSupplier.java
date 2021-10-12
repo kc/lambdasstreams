@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 public class UsingSupplier {
     public static List<String> concat(List<String> list, Supplier<String> s) {
         List<String> result = new ArrayList<>();
-        // TODO: concat each element from list with the result of s and put the new element in result
+        list.forEach(str -> result.add(str + s.get()));
         return result;
     }
 
