@@ -52,4 +52,19 @@ public class AppleServiceTest {
                 "Apple Color: red, Weight: 85" + System.lineSeparator();
         assertEquals(expected, outContent.toString());
     }
+
+    @Test
+    public void shouldSetWeightTo0() {
+        List<Apple> apples = List.of(
+                new Apple("red", 150),
+                new Apple("green", 180),
+                new Apple("red", 85)
+        );
+        AppleService service = new AppleService();
+        service.consumeApples(apples, new AppleConsumer());
+
+        for(Apple apple : apples) {
+            assertEquals(0, apple.getWeight());
+        }
+    }
 }
