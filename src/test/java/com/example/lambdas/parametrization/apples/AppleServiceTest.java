@@ -39,7 +39,7 @@ public class AppleServiceTest {
         );
 
         AppleService service = new AppleService();
-        AppleConsumer appleConsumer = new AppleConsumer() {
+        Consumer<Apple> appleConsumer = new Consumer<>() {
             @Override
             public void accept(Apple apple) {
                 System.out.println(apple);
