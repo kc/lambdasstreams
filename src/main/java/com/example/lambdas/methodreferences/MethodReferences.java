@@ -1,10 +1,16 @@
 package com.example.lambdas.methodreferences;
 
+import com.example.lambdas.parametrization.apples.Apple;
+
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-import java.util.function.*;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 public class MethodReferences {
 
@@ -26,7 +32,6 @@ public class MethodReferences {
         int i42 = parse("42", (String s) -> Integer.parseInt(s));
         check(List.of("1", "2", "3"), "3", (list, element) -> list.contains(element));
         check("1abc", (String string) -> this.startsWithNumber(string));
-
     }
 
     // Lab 3.2

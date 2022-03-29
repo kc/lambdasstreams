@@ -1,5 +1,6 @@
 package com.example.lambdas.methodreferences;
 
+import com.example.lambdas.parametrization.apples.Apple;
 import org.junit.Test;
 
 import java.util.List;
