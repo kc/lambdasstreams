@@ -14,6 +14,7 @@ public class TestParallelOperations {
         int n = 100_000;
         System.out.println(format("Method", "Duration (µs)", "Sum"));
         System.out.println("---------------------------------------------------------");
+        System.out.println(format("smart", measure(this::smart, n)));                           // no boxing, iterating and summing at once
         System.out.println(format("iterative", measure(this::iterative, n)));                           // no boxing, iterating and summing at once
         System.out.println(format("sequentialIterateLim", measure(this::sequentialIterateLim, n)));     // boxing/unboxing overhead; unknown stream size: difficult to divide
         System.out.println(format("parallelIterateLim", measure(this::parallelIterateLim, n)));         // idem, plus threading overhead
@@ -31,6 +32,10 @@ public class TestParallelOperations {
 
     private String format(String method, Result result) {
         return format(method, Long.toString(result.duration), Long.toString(result.sum));
+    }
+
+    private long smart(long n) {
+        return (long) (n * ((1 + n) / 2d));
     }
 
     private long iterative(long n) {

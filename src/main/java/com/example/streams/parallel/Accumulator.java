@@ -12,7 +12,7 @@ interface Accumulator {
 
         public void add(long value) { total += value; }
 
-        public long getTotal() {return total;}
+        public long getTotal() { return total; }
     }
 
     class AtomicAccumulator implements Accumulator {
@@ -20,15 +20,14 @@ interface Accumulator {
 
         public void add(long value) { total.addAndGet(value); }
 
-        public long getTotal() {return total.get();}
+        public long getTotal() { return total.get(); }
     }
-
 
     class SynchronizedAccumulator implements Accumulator {
         private long total = 0L;
 
-        public void add(long value) { synchronized (this) {total += value;} }
+        public synchronized void add(long value) { total += value; }
 
-        public long getTotal() {return total;}
+        public long getTotal() { return total; }
     }
 }

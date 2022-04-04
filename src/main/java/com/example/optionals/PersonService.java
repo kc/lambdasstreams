@@ -7,11 +7,11 @@ import java.util.Optional;
  */
 public class PersonService {
 
-    public void raiseSalaryOldStyle(Person p, String name, int amount) {
-        if (p != null) {
-            if (p.getName() != null)
-                if (p.getName().contains(name)) {
-                    p.setSalary(p.getSalary() + amount);
+    public void raiseSalaryOldStyle(Person person, String name, int amount) {
+        if (person != null) {
+            if (person.getName() != null)
+                if (person.getName().contains(name)) {
+                    person.setSalary(person.getSalary() + amount);
                 }
         }
     }

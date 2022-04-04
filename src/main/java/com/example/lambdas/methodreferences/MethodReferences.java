@@ -53,6 +53,7 @@ public class MethodReferences {
         List<Apple> result = new ArrayList<>();
 
         // TODO: create apples for all combinations of colors and weights
+        //       See also unit test.
 
         return result;
     }

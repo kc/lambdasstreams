@@ -4,41 +4,49 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class Optionals {
+// Example of a utility class implemented as an interface with default methods.
+public interface Optionals {
 
-    public static final String unknown = "Unknown";
+    String unknown = "Unknown";
 
-    public static String getCarInsuranceName(Person person) {
+    default String getCarInsuranceName(Person person) {
         // TODO; hint: use Optional.(flat)map
         return unknown + "?";
     }
 
-    public static String getCarInsuranceName(Person person, int minAge) {
+    default String getCarInsuranceName(Person person, int minAge) {
         // TODO; hint: use Optional.filter
         return unknown + "?";
     }
 
-    public static Set<String> getCarInsuranceNames(List<Person> persons) {
+    default Set<String> getCarInsuranceNames(List<Person> persons) {
         return Set.of(unknown + "?");
         // TODO; use the code below as a starting point:
         // return persons.stream().
         // ....;
     }
 
-    public static Optional<Insurance> nullSafeFindCheapestInsurance(Optional<Person> person,
-                                                                    Optional<Car> car) {
-        if (person.isPresent() && car.isPresent()) {
-            return Optional.of(findCheapestInsurance(person.get(), car.get()));
+    default Insurance findCheapestInsurance(Person person, Car car) {
+        // This method is NOT null safe...
+        if (person.getAge() > 25 && !car.getName().equals("VW Golf")) {
+            return new Insurance("El Cheapo");        // perform some database query ...
+        } else {
+            return new Insurance("Normal insurance"); // perform some other database query ...
+        }
+    }
+
+    default Optional<Insurance> findCheapestInsuranceNullSafe(Person person, Car car) {
+        Optional<Person> optPerson = Optional.ofNullable(person);
+        Optional<Car> optCar = Optional.ofNullable(car);
+
+        if (optPerson.isPresent() && optCar.isPresent()) {
+            return Optional.of(findCheapestInsurance(optPerson.get(), optCar.get()));
         } else {
             return Optional.empty();
         }
+
         // TODO
-        // rewrite to single return statement:
+        // rewrite above to a single return statement:
         // return .........;
     }
-
-    private static Insurance findCheapestInsurance(Person person, Car car) {
-        return new Insurance("El Cheapo");
-    }
-
 }

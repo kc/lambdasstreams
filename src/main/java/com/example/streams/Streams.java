@@ -2,7 +2,6 @@ package com.example.streams;
 
 import java.util.StringJoiner;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import static com.example.streams.ExampleCollections.persons;
 
@@ -19,5 +18,4 @@ public class Streams {
         String collect = persons.stream().collect(personNameCollector);
         System.out.println(collect);
     }
-
 }

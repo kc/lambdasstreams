@@ -2,7 +2,12 @@ package com.example.lambdas;
 
 import org.junit.Test;
 
-import java.util.function.*;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
+import java.util.function.IntFunction;
+import java.util.function.Supplier;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -10,10 +15,36 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class MyMathTest {
 
     @Test
-    public void test() {
+    public void intro() {
         // als een lambda simpelweg delegeert naar een andere methode, kun je in sommige
         // gevallen een referentie naar die andere methode meegeven ipv de lambda die hem aanroept
 
+        // Stel we hebben (oude stijl):
+        Consumer<Integer> c1 = new Consumer<Integer>() {
+            @Override
+            public void accept(Integer i) {
+                System.out.println(i);
+            }
+        };
+
+        // Accept roept alleen maar println met i aan.
+
+        // Aanroepen van accept:
+        c1.accept(1);
+        // ... is dus hetzelfde als:
+        System.out.println(1);
+
+        // Nieuwe stijl:
+        Consumer<Integer> c2 = i -> System.out.println(i);
+        c2.accept(2);
+
+        // Daarom kunnen we ook zeggen:
+        Consumer<Integer> c3 = System.out::println;
+        c3.accept(3);
+    }
+
+    @Test
+    public void example() {
         MyMath myMath = new MyMath(42);
 
         // 1. a method reference to a static method
@@ -44,11 +75,11 @@ public class MyMathTest {
         Supplier<MyMath> s = MyMath::new; // no arg constructor
         IntFunction<MyMath> f = MyMath::new; // one (int) arg constructor
 
-        MyMath myMath1 = f.apply(100);
-        MyMath myMath2 = s.get();
+        MyMath myMath1 = s.get();
+        MyMath myMath2 = f.apply(100);
 
-        assertThat(myMath1.i, is(100));
-        assertThat(myMath2.i, is(-1));
+        assertThat(myMath1.i, is(-1));
+        assertThat(myMath2.i, is(100));
     }
 
     private int mutate(int i, IntFunction<Integer> c) {

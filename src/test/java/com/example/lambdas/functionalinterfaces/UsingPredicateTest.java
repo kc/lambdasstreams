@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class UsingPredicateTest {
 
     @Test
-    public void test() {
+    public void filterEmptyStrings() {
         List<String> listOfStrings = Arrays.asList("a", "ab", "", "abc");
         List<String> nonEmpt = filter(listOfStrings, s -> !s.isEmpty());
 
