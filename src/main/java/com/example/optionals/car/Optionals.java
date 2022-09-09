@@ -31,5 +31,4 @@ public class Optionals {
     public static String getCarInsuranceName(Person person) {
         return "TODO!"; // TODO 6.1.1
     }
-
 }

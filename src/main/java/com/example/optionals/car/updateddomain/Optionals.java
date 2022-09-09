@@ -23,7 +23,7 @@ public interface Optionals {
         return Set.of(unknown + "?");
         // TODO; use the code below as a starting point:
         // return persons.stream().
-        // ....;
+        //          ....;
     }
 
     default Insurance findCheapestInsurance(Person person, Car car) {

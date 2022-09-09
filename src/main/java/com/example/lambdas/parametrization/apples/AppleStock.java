@@ -11,7 +11,7 @@ public class AppleStock {
     public static final Apple defaultApple = new Apple("UNKNOWN", -1);
 
     static {
-        stock = DoubleStream.generate(Math::random)
+        stock = DoubleStream.generate(() -> Math.random())
                 .mapToInt(r -> (int) (r * 300))
                 .mapToObj(w -> new Apple(COLORS[(int) (Math.random() * 3)], w))
                 .limit(SIZE)
