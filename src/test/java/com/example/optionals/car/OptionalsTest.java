@@ -43,4 +43,25 @@ public class OptionalsTest {
         String name = Optionals.getCarInsuranceName(person);
         assertThat(name, is("WA"));
     }
+    
+    @Test
+    public void getCarInsuranceNameWithNullCar() {
+        Person person = new Person(null);
+        String name = Optionals.getCarInsuranceName(person);
+        assertThat(name, is(unknown));
+    }
+
+    @Test
+    public void getCarInsuranceNameWithNullInsurance() {
+        Person person = new Person(new Car(null));
+        String name = Optionals.getCarInsuranceName(person);
+        assertThat(name, is(unknown));
+    }
+
+    @Test
+    public void getCarInsuranceNameWithNullInsuranceName() {
+        Person person = new Person(new Car(new Insurance(null)));
+        String name = Optionals.getCarInsuranceName(person);
+        assertThat(name, is(unknown));
+    }
 }
